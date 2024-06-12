@@ -6,6 +6,10 @@ resource "aws_vpc" "main" {
   }
 }
 
+resource "aws_vpc_ipv4_cidr_block_association" "additional"
+  vpc_id = aws_vpc.main.id
+  cidr = "192.168.0.0/16"
+
 ## creating of subnet
 # Create a public subnet
 resource "aws_subnet" "public" {
